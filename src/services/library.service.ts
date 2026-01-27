@@ -12,8 +12,6 @@ export const libraryService = {
       throw new Error(error.message);
     }
 
-    console.log('Fetched books:', data);
-
     return data ?? [];
   },
 

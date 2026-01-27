@@ -2,6 +2,7 @@
 
 import { useLibrary } from '@/hooks/useLibrary';
 import { LibraryTable } from '@/components/library';
+import { TableSkeleton } from '@/components/ui/Skeleton';
 
 const Home = () => {
   const { books, isLoading, isError } = useLibrary();
@@ -13,9 +14,7 @@ const Home = () => {
           Library
         </h1>
 
-        {isLoading && (
-          <p className="text-zinc-500 dark:text-zinc-400">Loading...</p>
-        )}
+        {isLoading && <TableSkeleton rows={10} columns={5} />}
 
         {isError && (
           <p className="text-red-500">Failed to load library data.</p>
