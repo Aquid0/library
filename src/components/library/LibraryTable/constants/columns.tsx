@@ -21,7 +21,7 @@ export const columns = [
       const total = info.row.original.total_pages;
       return `${progress} / ${total}`;
     },
-    size: 100,
+    size: 120,
   }),
   columnHelper.accessor('score', {
     header: 'Score',
@@ -29,11 +29,11 @@ export const columns = [
       const score = info.getValue();
       return score > 0 ? score : '—';
     },
-    size: 80,
+    size: 100,
   }),
   columnHelper.accessor('status', {
     header: 'Status',
     cell: (info) => info.getValue(),
-    size: 100,
+    size: 120,
   }),
 ];
