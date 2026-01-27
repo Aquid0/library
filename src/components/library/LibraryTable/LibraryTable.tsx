@@ -5,11 +5,11 @@ import {
   getCoreRowModel,
   flexRender,
 } from '@tanstack/react-table';
-import { columns } from './columns';
+import { columns } from './constants/columns';
+import { SKELETON_ROW_COUNT } from './constants/constants';
 import { SkeletonRow } from '@/components/ui/Skeleton';
 import type { LibraryTableProps } from './types';
 
-const SKELETON_ROW_COUNT = 10;
 
 export const LibraryTable = ({ data, isLoading = false }: LibraryTableProps) => {
   const table = useReactTable({

@@ -1,2 +1,2 @@
 export { LibraryTable } from './LibraryTable';
-export { columns } from './columns';
+export { columns } from './constants/columns';
