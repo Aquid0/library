@@ -1,9 +1,8 @@
 'use client';
 
 import { useReactTable, getCoreRowModel } from '@tanstack/react-table';
-import { columns } from './constants/columns';
-import { TableHeader } from './TableHeader';
-import { TableBody } from './TableBody';
+import { columns } from '../constants/columns';
+import { TableHeader, TableBody } from '../Table';
 import type { LibraryTableProps } from './types';
 
 export const LibraryTable = ({ data, isLoading = false, showHeader = true }: LibraryTableProps) => {

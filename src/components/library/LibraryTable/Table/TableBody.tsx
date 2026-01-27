@@ -1,6 +1,6 @@
 import { SkeletonRow } from '@/components/ui/Skeleton';
 import { TableRow } from './TableRow';
-import { SKELETON_ROW_COUNT } from './constants/constants';
+import { SKELETON_ROW_COUNT } from '../constants/constants';
 import type { TableBodyProps } from './types';
 
 export const TableBody = ({ rows, isLoading, columnCount }: TableBodyProps) => (

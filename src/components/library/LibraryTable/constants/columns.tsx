@@ -1,12 +1,23 @@
 import { createColumnHelper } from '@tanstack/react-table';
 import type { Book } from '@/types';
+import { BookCover } from '../BookCover';
 
 const columnHelper = createColumnHelper<Book>();
 
 export const columns = [
   columnHelper.accessor('title', {
     header: 'Title',
-    cell: (info) => info.getValue(),
+    cell: (info) => {
+      const title = info.getValue();
+      const coverUrl = info.row.original.cover_url;
+
+      return (
+        <div className="flex items-center gap-3">
+          <BookCover src={coverUrl} alt={title} size={32} />
+          <span className="truncate">{title}</span>
+        </div>
+      );
+    },
     size: 300,
   }),
   columnHelper.accessor('author', {
