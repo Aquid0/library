@@ -7,12 +7,12 @@ export const columns = [
   columnHelper.accessor('title', {
     header: 'Title',
     cell: (info) => info.getValue(),
-    size: 250,
+    size: 300,
   }),
   columnHelper.accessor('author', {
     header: 'Author',
     cell: (info) => info.getValue() ?? '—',
-    size: 180,
+    size: 220,
   }),
   columnHelper.accessor('progress', {
     header: 'Progress',
@@ -21,7 +21,7 @@ export const columns = [
       const total = info.row.original.total_pages;
       return `${progress} / ${total}`;
     },
-    size: 120,
+    size: 150,
   }),
   columnHelper.accessor('score', {
     header: 'Score',
@@ -30,10 +30,5 @@ export const columns = [
       return score > 0 ? score : '—';
     },
     size: 100,
-  }),
-  columnHelper.accessor('status', {
-    header: 'Status',
-    cell: (info) => info.getValue(),
-    size: 120,
   }),
 ];

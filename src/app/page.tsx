@@ -1,10 +1,10 @@
 'use client';
 
-import { useLibrary } from '@/hooks/useLibrary';
+import { useLibrary, STATUS_CONFIG } from '@/hooks/useLibrary';
 import { LibraryTable } from '@/components/library';
 
 const Home = () => {
-  const { books, isLoading, isError } = useLibrary();
+  const { booksByStatus, isLoading, isError } = useLibrary();
 
   return (
     <div className="min-h-screen bg-zinc-50 p-8 dark:bg-zinc-950">
@@ -29,15 +29,28 @@ const Home = () => {
           </div>
         </div>
         <div className="flex gap-5"> 
-          <div className="sticky top-8 h-[600px] w-[280px] shrink-0 rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900">
+          <div className="sticky top-4 h-[600px] w-[280px] shrink-0 rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900">
             {/* Filters can go here */}
           </div>
-          <div className="flex-1">
+          <div className="flex flex-1 flex-col gap-8">
             {isError && (
               <p className="text-red-500">Failed to load library data.</p>
             )}
 
-            {!isError && <LibraryTable data={books} isLoading={isLoading} />}
+            {!isError && STATUS_CONFIG.map(({ status, label }, index) => (
+              <section key={status} className="flex flex-col gap-3">
+                <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                  {label}
+                  <span className="ml-2 text-sm font-normal text-zinc-500">
+                    ({booksByStatus[status].length})
+                  </span>
+                </h3>
+                <LibraryTable 
+                  data={booksByStatus[status]} 
+                  isLoading={isLoading}
+                />
+              </section>
+            ))}
           </div>
         </div>
       </main>

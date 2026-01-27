@@ -6,7 +6,7 @@ import { TableHeader } from './TableHeader';
 import { TableBody } from './TableBody';
 import type { LibraryTableProps } from './types';
 
-export const LibraryTable = ({ data, isLoading = false }: LibraryTableProps) => {
+export const LibraryTable = ({ data, isLoading = false, showHeader = true }: LibraryTableProps) => {
   const table = useReactTable({
     data,
     columns,
@@ -16,7 +16,7 @@ export const LibraryTable = ({ data, isLoading = false }: LibraryTableProps) => 
   return (
     <div className="w-full overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
       <table className="w-full table-fixed text-sm">
-        <TableHeader headerGroups={table.getHeaderGroups()} />
+        {showHeader && <TableHeader headerGroups={table.getHeaderGroups()} />}
         <TableBody
           rows={table.getRowModel().rows}
           isLoading={isLoading}
