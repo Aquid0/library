@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import Image from 'next/image';
 
 type BookCoverProps = {
@@ -17,7 +17,7 @@ const getOptimizedCoverUrl = (url: string): string => {
   return url;
 };
 
-export const BookCover = ({ src, alt, size = 32 }: BookCoverProps) => {
+export const BookCover = memo(function BookCover({ src, alt, size = 32 }: BookCoverProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
@@ -47,6 +47,8 @@ export const BookCover = ({ src, alt, size = 32 }: BookCoverProps) => {
         alt={alt}
         width={size}
         height={size}
+        loading="lazy"
+        unoptimized
         className={`h-full w-full object-cover transition-opacity duration-200 ${
           isLoading ? 'opacity-0' : 'opacity-100'
         }`}
@@ -55,4 +57,4 @@ export const BookCover = ({ src, alt, size = 32 }: BookCoverProps) => {
       />
     </div>
   );
-};
+});

@@ -9,6 +9,9 @@ export const Providers = ({ children }: ProvidersProps) => {
       value={{
         revalidateOnFocus: false,
         shouldRetryOnError: false,
+        dedupingInterval: 60000, // Dedupe requests within 60s
+        focusThrottleInterval: 120000, // Throttle focus revalidation
+        keepPreviousData: true, // Show stale data while revalidating
       }}
     >
       {children}

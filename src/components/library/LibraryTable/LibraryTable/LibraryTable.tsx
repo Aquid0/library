@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import { useReactTable, getCoreRowModel } from '@tanstack/react-table';
 import { columns } from '../constants/columns';
 import { TableHeader, TableBody } from '../Table';
@@ -9,7 +10,7 @@ export const LibraryTable = ({ data, isLoading = false, showHeader = true }: Lib
   const table = useReactTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel(),
+    getCoreRowModel: useMemo(() => getCoreRowModel(), []),
   });
 
   return (
