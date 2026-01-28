@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-zinc-50 p-17 dark:bg-zinc-950">
       <Header />
-      <main className="mx-auto w-full max-w-6xl gap-5 flex flex-col">
+      <main className="mx-auto w-full max-w-6xl gap-6 flex flex-col">
         <div className="w-full rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900">
           <div className="flex items-start gap-4">
             {/* Profile Picture */}
@@ -31,7 +31,7 @@ const Home = () => {
           </div>
         </div>
         <div className="flex gap-5"> 
-          <div className="sticky top-4 h-[600px] w-[280px] shrink-0 rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900">
+          <div className="h-[600px] w-[280px] shrink-0 rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900">
             {/* Filters can go here */}
           </div>
           <div className="flex flex-1 flex-col gap-8">
