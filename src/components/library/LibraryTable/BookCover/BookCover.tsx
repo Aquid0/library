@@ -2,24 +2,20 @@
 
 import { memo, useState } from 'react';
 import Image from 'next/image';
+import { BLUR_DATA_URL, PRIORITY_THRESHOLD, getOptimizedCoverUrl } from './constants';
+import type { BookCoverProps } from './types';
 
-type BookCoverProps = {
-  src: string | null;
-  alt: string;
-  size?: number;
-};
-
-const getOptimizedCoverUrl = (url: string): string => {
-  // Open Library: swap -L (large) or -M (medium) for -S (small ~40px)
-  if (url.includes('covers.openlibrary.org')) {
-    return url.replace(/-[LM]\.jpg$/, '-S.jpg');
-  }
-  return url;
-};
-
-export const BookCover = memo(function BookCover({ src, alt, size = 32 }: BookCoverProps) {
+export const BookCover = memo(function BookCover({
+  src,
+  alt,
+  size = 32,
+  index = Infinity,
+}: BookCoverProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+
+  // Above-the-fold rows get priority loading
+  const isPriority = index < PRIORITY_THRESHOLD;
 
   if (!src || hasError) {
     return (
@@ -47,8 +43,10 @@ export const BookCover = memo(function BookCover({ src, alt, size = 32 }: BookCo
         alt={alt}
         width={size}
         height={size}
-        loading="lazy"
-        unoptimized
+        priority={isPriority}
+        loading={isPriority ? undefined : 'lazy'}
+        placeholder="blur"
+        blurDataURL={BLUR_DATA_URL}
         className={`h-full w-full object-cover transition-opacity duration-200 ${
           isLoading ? 'opacity-0' : 'opacity-100'
         }`}

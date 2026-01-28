@@ -10,10 +10,11 @@ export const columns = [
     cell: (info) => {
       const title = info.getValue();
       const coverUrl = info.row.original.cover_url;
+      const rowIndex = info.row.index;
 
       return (
         <div className="flex items-center gap-3">
-          <BookCover src={coverUrl} alt={title} size={32} />
+          <BookCover src={coverUrl} alt={title} size={32} index={rowIndex} />
           <span className="truncate">{title}</span>
         </div>
       );
