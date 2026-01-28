@@ -2,12 +2,14 @@
 
 import { useLibrary, STATUS_CONFIG } from '@/hooks/useLibrary';
 import { LibraryTable } from '@/components/library';
+import { Header } from '@/components/ui/Header';
 
 const Home = () => {
   const { booksByStatus, isLoading, isError } = useLibrary();
 
   return (
-    <div className="min-h-screen bg-zinc-50 p-8 dark:bg-zinc-950">
+    <div className="min-h-screen bg-zinc-50 p-17 dark:bg-zinc-950">
+      <Header />
       <main className="mx-auto w-full max-w-6xl gap-5 flex flex-col">
         <div className="w-full rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900">
           <div className="flex items-start gap-4">
