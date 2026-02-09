@@ -13,6 +13,12 @@ export const Popover = ({ children, content }: PopoverProps) => {
     setIsLeftAligned(rect.right <= window.innerWidth);
   }, []);
 
+  const toggleVisibility = (keyPressed: KeyboardEvent) => {
+    if (keyPressed.key === 'Escape') {
+      setIsVisible(false);
+    };
+  }
+
   useEffect(() => {
     if (!isVisible) return;
 
@@ -28,10 +34,12 @@ export const Popover = ({ children, content }: PopoverProps) => {
 
     checkAlignment();
     document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', toggleVisibility);
     window.addEventListener('resize', checkAlignment);
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', toggleVisibility);
       window.removeEventListener('resize', checkAlignment);
     };
   }, [isVisible, checkAlignment]);
