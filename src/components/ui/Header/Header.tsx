@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { Popover } from '../Popover/Popover';
 
 export const Header = () => {
   const [isScrollingDown, setIsScrollingDown] = useState(false);
@@ -27,7 +28,13 @@ export const Header = () => {
           Library
         </div>
         <div className="flex items-center">{/* Center section */}</div>
-        <div className="flex items-center">{/* Right section */}</div>
+        <div className="flex items-center">{/* Right section */}
+          <Popover content={<div className="p-2 dark:bg-zinc-900 bg-zinc-100">Profile</div>}>
+            <div className="h-8 w-8 rounded-full bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600 flex items-center justify-center text-sm text-zinc-500 dark:text-zinc-400 transition-colors duration-200">
+              U
+            </div>
+          </Popover>
+        </div>
       </div>
     </div>
   );

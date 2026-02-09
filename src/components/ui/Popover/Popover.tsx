@@ -4,7 +4,7 @@ import { PopoverProps } from './types';
 export const Popover = ({ children, content }: PopoverProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const popoverRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -25,13 +25,28 @@ export const Popover = ({ children, content }: PopoverProps) => {
   }, []);
 
   return (
-    <div
-      className="popover-container"
-      ref={triggerRef}
-      onClick={() => setIsVisible(!isVisible)}
-      aria-haspopup="true"
-      aria-expanded={isVisible}
-      aria-controls="popover-content"
-    ></div>
+    <div className="relative inline-block">
+      <button
+        ref={triggerRef}
+        onClick={() => setIsVisible(!isVisible)}
+        aria-haspopup="true"
+        aria-expanded={isVisible}
+        aria-controls="popover-content"
+        className="focus:outline-none border-none bg-transparent p-0 cursor-pointer"
+      >
+        {children}
+      </button>
+      {isVisible && (
+        <div
+          ref={popoverRef}
+          id="popover-content"
+          role="dialog"
+          className="absolute z-50 mt-2 bg-white rounded-lg shadow-lg"
+          aria-modal="true"
+        >
+          {content}
+        </div>
+      )}
+    </div>
   );
 };
