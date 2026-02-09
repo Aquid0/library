@@ -1,6 +1,7 @@
 import { createColumnHelper } from '@tanstack/react-table';
 import type { Book } from '@/types';
 import { BookCover } from '../BookCover';
+import { COLUMN_SIZES } from './constants';
 
 const columnHelper = createColumnHelper<Book>();
 
@@ -19,12 +20,12 @@ export const columns = [
         </div>
       );
     },
-    size: 300,
+    size: COLUMN_SIZES.title,
   }),
   columnHelper.accessor('author', {
     header: 'Author',
     cell: (info) => info.getValue() ?? '—',
-    size: 220,
+    size: COLUMN_SIZES.author,
   }),
   columnHelper.accessor('progress', {
     header: 'Progress',
@@ -33,7 +34,7 @@ export const columns = [
       const total = info.row.original.total_pages;
       return `${progress} / ${total}`;
     },
-    size: 150,
+    size: COLUMN_SIZES.progress,
   }),
   columnHelper.accessor('score', {
     header: 'Score',
@@ -41,6 +42,6 @@ export const columns = [
       const score = info.getValue();
       return score > 0 ? score : '—';
     },
-    size: 100,
+    size: COLUMN_SIZES.score,
   }),
 ];

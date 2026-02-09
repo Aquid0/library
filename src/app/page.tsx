@@ -8,7 +8,7 @@ const Home = () => {
   const { booksByStatus, isLoading, isError } = useLibrary();
 
   return (
-    <div className="min-h-screen bg-zinc-50 p-17 dark:bg-zinc-950">
+    <div className="min-h-screen min-w-fit bg-zinc-50 p-17 dark:bg-zinc-950">
       <Header />
       <main className="mx-auto w-full max-w-6xl gap-6 flex flex-col">
         <div className="w-full rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900">
