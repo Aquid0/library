@@ -2,7 +2,10 @@ import { SkeletonHeaderCell } from './SkeletonHeaderCell';
 import { SkeletonRow } from './SkeletonRow';
 import type { TableSkeletonProps } from './types';
 
-export const TableSkeleton = ({ rows = 5, columns = 5 }: TableSkeletonProps) => {
+export const TableSkeleton = ({
+  rows = 5,
+  columns = 5,
+}: TableSkeletonProps) => {
   return (
     <div className="w-full overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800">
       <table className="w-full text-sm">

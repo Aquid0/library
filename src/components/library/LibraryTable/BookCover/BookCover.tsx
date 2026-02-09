@@ -2,7 +2,11 @@
 
 import { memo, useState } from 'react';
 import Image from 'next/image';
-import { BLUR_DATA_URL, PRIORITY_THRESHOLD, getOptimizedCoverUrl } from './constants';
+import {
+  BLUR_DATA_URL,
+  PRIORITY_THRESHOLD,
+  getOptimizedCoverUrl,
+} from './constants';
 import type { BookCoverProps } from './types';
 
 export const BookCover = memo(function BookCover({

@@ -6,7 +6,11 @@ import { columns } from '../constants/columns';
 import { TableHeader, TableBody } from '../Table';
 import type { LibraryTableProps } from './types';
 
-export const LibraryTable = ({ data, isLoading = false, showHeader = true }: LibraryTableProps) => {
+export const LibraryTable = ({
+  data,
+  isLoading = false,
+  showHeader = true,
+}: LibraryTableProps) => {
   const table = useReactTable({
     data,
     columns,

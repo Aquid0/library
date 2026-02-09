@@ -17,4 +17,4 @@ export const Providers = ({ children }: ProvidersProps) => {
       {children}
     </SWRConfig>
   );
-}
+};

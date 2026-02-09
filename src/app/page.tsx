@@ -30,31 +30,34 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="flex gap-5"> 
+        <div className="flex gap-5">
           <div className="h-[600px] w-[280px] shrink-0 rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900">
             {/* Filters can go here */}
           </div>
           <div className="flex flex-1 flex-col gap-8">
             {isError && (
               <div className="h-[600px] w-full shrink-0 rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900 flex items-center justify-center">
-                <p className="text-xl text-zinc-500 dark:text-zinc-400">Failed to load library data.</p>
+                <p className="text-xl text-zinc-500 dark:text-zinc-400">
+                  Failed to load library data.
+                </p>
               </div>
             )}
 
-            {!isError && STATUS_CONFIG.map(({ status, label }, index) => (
-              <section key={status} className="flex flex-col gap-3">
-                <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-                  {label}
-                  <span className="ml-2 text-sm font-normal text-zinc-500">
-                    ({booksByStatus[status].length})
-                  </span>
-                </h3>
-                <LibraryTable 
-                  data={booksByStatus[status]} 
-                  isLoading={isLoading}
-                />
-              </section>
-            ))}
+            {!isError &&
+              STATUS_CONFIG.map(({ status, label }, index) => (
+                <section key={status} className="flex flex-col gap-3">
+                  <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                    {label}
+                    <span className="ml-2 text-sm font-normal text-zinc-500">
+                      ({booksByStatus[status].length})
+                    </span>
+                  </h3>
+                  <LibraryTable
+                    data={booksByStatus[status]}
+                    isLoading={isLoading}
+                  />
+                </section>
+              ))}
           </div>
         </div>
       </main>
@@ -63,4 +66,3 @@ const Home = () => {
 };
 
 export default Home;
-
