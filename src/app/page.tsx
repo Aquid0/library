@@ -36,7 +36,9 @@ const Home = () => {
           </div>
           <div className="flex flex-1 flex-col gap-8">
             {isError && (
-              <p className="text-red-500">Failed to load library data.</p>
+              <div className="h-[600px] w-full shrink-0 rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900 flex items-center justify-center">
+                <p className="text-xl text-zinc-500 dark:text-zinc-400">Failed to load library data.</p>
+              </div>
             )}
 
             {!isError && STATUS_CONFIG.map(({ status, label }, index) => (
