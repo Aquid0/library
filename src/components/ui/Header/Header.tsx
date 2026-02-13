@@ -73,11 +73,11 @@ export const Header = () => {
                 </div>
               </Popover> 
               ) : 
-              <div className="grid grid-cols-2 gap-2 w-40">
-                <button className="bg-gray-300 text-black px-3 py-1 rounded text-sm text-nowrap">
+              <div className="flex gap-2 w-40 items-center">
+                <button className="flex-1 bg-gray-300 text-black px-3 py-1 rounded text-sm text-nowrap font-bold">
                   Sign Up
                 </button>
-                <button className="bg-blue-600 text-white px-3 py-1 rounded text-sm text-nowrap">
+                <button className="flex-1 bg-blue-600 text-white px-3 py-1 rounded text-sm text-nowrap font-bold">
                   Login
                 </button>
               </div>
