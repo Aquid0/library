@@ -7,7 +7,7 @@ export const Header = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [isLoggedin, setIsLoggedin] = useState(false); // Placeholder for authentication state
+  const [isLoggedIn, setIsLoggedOn] = useState(false); // Placeholder for authentication state
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +25,7 @@ export const Header = () => {
 
   const profileContent = (
     <div className="p-2 dark:bg-zinc-900 bg-zinc-100 flex flex-col gap-3 rounded w-64">
-      {!isLoggedin ? (
+      {!isLoggedIn ? (
         <>
           <input
             className="bg-zinc-200 dark:bg-zinc-700 rounded px-2 py-1 text-sm text-zinc-900 dark:text-zinc-100"
@@ -40,11 +40,11 @@ export const Header = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <div className="flex items-center justify-between">
+          <div className="grid grid-cols-2 gap-2">
             <button className="bg-blue-600 text-white px-3 py-1 rounded text-sm"> 
               Sign Up
             </button>
-           <button className="bg-blue-600 text-white px-3 py-1 rounded text-sm"> 
+            <button className="bg-blue-600 text-white px-3 py-1 rounded text-sm"> 
               Login
             </button>
           </div>
@@ -65,11 +65,23 @@ export const Header = () => {
         </div>
         <div className="flex items-center">{/* Center section */}</div>
         <div className="flex items-center">{/* Right section */}
-          <Popover content={profileContent}>
-            <div className="h-8 w-8 rounded-full bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600 flex items-center justify-center text-sm text-zinc-500 dark:text-zinc-400 transition-colors duration-200">
-              U
-            </div>
-          </Popover>
+          {
+            isLoggedIn ? (
+              <Popover content={profileContent}>
+                <div className="h-8 w-8 rounded-full bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600 flex items-center justify-center text-sm text-zinc-500 dark:text-zinc-400 transition-colors duration-200">
+                  U
+                </div>
+              </Popover> 
+              ) : 
+              <div className="grid grid-cols-2 gap-2">
+                <button className="bg-gray-300 text-black px-3 py-1 rounded text-sm text-nowrap">
+                  Sign Up
+                </button>
+                <button className="bg-blue-600 text-white px-3 py-1 rounded text-sm text-nowrap">
+                  Login
+                </button>
+              </div>
+          }
         </div>
       </div>
     </div>
