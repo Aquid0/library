@@ -1,13 +1,22 @@
-type ModalProps = {
-    title?: React.ReactNode;
-    content: React.ReactNode;
-    footerActions?: React.ReactNode[];
-    isOpen: boolean;
-    onClose: () => void;
-}
+import { useEffect } from "react";
+import { ModalProps } from "./types";
 
 export const Modal = ({ title, content, footerActions, isOpen, onClose }: ModalProps) => {
     if (!isOpen) return null;
+
+    useEffect(() => {
+        const handleEscape = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                onClose();
+            }
+        }
+
+        document.addEventListener("keydown", handleEscape);
+        
+        return () => {
+            document.removeEventListener("keydown", handleEscape);
+        };
+    })
 
     return (
         <>
