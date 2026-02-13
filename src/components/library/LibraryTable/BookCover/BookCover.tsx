@@ -49,7 +49,6 @@ export const BookCover = memo(function BookCover({
         height={size}
         priority={isPriority}
         loading={isPriority ? undefined : 'lazy'}
-        placeholder="blur"
         blurDataURL={BLUR_DATA_URL}
         className={`h-full w-full object-cover transition-opacity duration-200 ${
           isLoading ? 'opacity-0' : 'opacity-100'
