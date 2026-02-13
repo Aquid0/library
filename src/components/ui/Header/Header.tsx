@@ -58,7 +58,7 @@ export const Header = () => {
       className={`min-w-fit dark:bg-zinc-900 bg-zinc-100 h-12 fixed w-full z-20 top-0 start-0 border-b border-zinc-300 dark:border-zinc-700 ${isScrollingDown ? '-translate-y-12' : 'translate-y-0'} transition-transform duration-175`}
     >
       <div 
-        className="mx-auto h-full w-full max-w-6xl flex items-center justify-between px-17"
+        className="mx-auto h-full w-full max-w-6xl flex items-center justify-between"
       >
         <div className="flex items-center text-xl font-semibold text-zinc-900 dark:text-zinc-100">
           Library
