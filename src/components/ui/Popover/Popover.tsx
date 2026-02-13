@@ -16,8 +16,8 @@ export const Popover = ({ children, content }: PopoverProps) => {
   const toggleVisibility = (keyPressed: KeyboardEvent) => {
     if (keyPressed.key === 'Escape') {
       setIsVisible(false);
-    };
-  }
+    }
+  };
 
   useEffect(() => {
     if (!isVisible) return;

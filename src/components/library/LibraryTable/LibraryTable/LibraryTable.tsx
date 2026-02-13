@@ -11,6 +11,7 @@ export const LibraryTable = ({
   isLoading = false,
   showHeader = true,
 }: LibraryTableProps) => {
+  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data,
     columns,

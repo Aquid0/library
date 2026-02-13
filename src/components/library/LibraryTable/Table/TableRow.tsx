@@ -9,3 +9,5 @@ export const TableRow = memo(({ row }: TableRowProps) => (
     ))}
   </tr>
 ));
+
+TableRow.displayName = 'TableRow';
