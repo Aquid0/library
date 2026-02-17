@@ -44,7 +44,7 @@ const Home = () => {
             )}
 
             {!isError &&
-              STATUS_CONFIG.map(({ status, label }, index) => (
+              STATUS_CONFIG.map(({ status, label }) => (
                 <section key={status} className="flex flex-col gap-3">
                   <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                     {label}
