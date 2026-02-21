@@ -9,7 +9,9 @@ export const useLibrary = (): UseLibraryReturn => {
     libraryService.getAll()
   );
 
-  const books = data ?? [];
+  const books = useMemo(() => {
+    return data ?? [];
+  }, [data]);
 
   const booksByStatus = useMemo<BooksByStatus>(
     () => ({
